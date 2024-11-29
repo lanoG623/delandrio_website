@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixel Art Maker</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    #pixelCanvas {
+      border: 1px solid #000;
+      border-collapse: collapse;
+    }
+
+    .pixel {
+      width: 20px;
+      height: 20px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <table id="pixelCanvas"></table>
+
+  <script>
+    const canvasSize = 20; // Adjust the size of the canvas
+    const pixelSize = 20; // Adjust the size of each pixel
+
+    const pixelCanvas = document.getElementById('pixelCanvas');
+
+    // Create the pixel art canvas
+    for (let i = 0; i < canvasSize; i++) {
+      const row = pixelCanvas.insertRow(i);
+      for (let j = 0; j < canvasSize; j++) {
+        const cell = row.insertCell(j);
+        cell.className = 'pixel';
+        cell.addEventListener('mouseover', colorPixel);
+      }
+    }
+
+    function colorPixel() {
+      this.style.backgroundColor = '#000'; // Change the color to your desired color
+    }
+  </script>
+</body>
+</html>
